@@ -1,0 +1,19 @@
+.App-header {
+	background: #eb005a;
+	height: 64px;
+	text-align: left;
+}
+
+.App-logo {
+	background: white;
+}
+
+.Title {
+	display: inline-block;
+	margin: 12px 2px 0;
+	vertical-align: top;
+	color: white;
+	font-size: 3em;
+	font-family: Calibri;
+	font-weight: bold;
+}
