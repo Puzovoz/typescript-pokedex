@@ -1,0 +1,40 @@
+.Loading-image {	
+  display: inline-block;
+  height: 96px;
+  width: 96px;
+  background: #F6F6F6;
+  border-radius: 50%
+}
+
+.Loading-index {
+  display: inline-block;
+  width: 35px;
+  height: 20px;
+  background: #F6F6F6;
+  border-radius: 10px;
+}
+
+.Loading-name {	
+  display: inline-block;
+  width: 100px;
+  height: 20px;
+  background: #F6F6F6;
+  border-radius: 10px;
+}
+
+.Pokemon {
+  position: relative;
+  display: inline-block;
+  margin: 15px;
+  width: auto;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.Pokemon-index {
+  color: #666;
+}
+
+.Pokemon-name {
+  font-weight: bold;
+}

@@ -1,0 +1,10 @@
+.Pokemon-list {  
+  background: white;
+  width: 80%;
+  margin: auto;
+  padding: 10px;
+  display: grid;
+  grid-gap: .25rem .75rem;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  grid-template-rows: auto;
+}
