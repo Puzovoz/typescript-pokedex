@@ -8,19 +8,29 @@ const PokemonList: React.FC = () => {
   const [loadedPokemon, setLoadedPokemon] = useState<PokemonResults>();
   const [renderedPokemon, setRenderedPokemon] = useState<ILink[]>();
   const [offset, setOffset] = useState<number>(50);
+  const [rowSize, setRowSize] = useState<number>(9);
 
   const handleScroll = () =>  {
-    if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
-    setOffset(offset => offset + 50);    
+    if (document.documentElement.clientHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
+    const newRowSize = calculateRowSize()
+    setOffset(offset => offset + (newRowSize - offset % newRowSize) % newRowSize + newRowSize * 6);    
   };
+
+  const calculateRowSize = () => {
+    return Math.floor(document.documentElement.clientWidth * 0.8 / 140)
+  }
 
   useEffect(() => {
     const fetchData = async () => {
       const result = await PokemonListService(0, 807)
       setLoadedPokemon(result)
-      setRenderedPokemon(result.results.slice(0, 50))
+
+      const currentLoadedPokemon = 6 * calculateRowSize()
+      setRenderedPokemon(result.results.slice(0, currentLoadedPokemon))
+      setOffset(currentLoadedPokemon)
     }
     fetchData();
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
