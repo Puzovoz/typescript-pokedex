@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
-import { Service } from '../Service/Service';
-import { PokemonResults, ILink } from '../../models/IPokemon';
+import { PokemonResults } from '../../models/IPokemon';
 import axios from 'axios';
 
 const PokemonListService = async (offset: number, limit: number): Promise<PokemonResults> => {

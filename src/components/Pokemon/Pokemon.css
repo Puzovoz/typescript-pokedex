@@ -23,6 +23,7 @@
 }
 
 .Pokemon {
+  height: 140px;
   position: relative;
   display: inline-block;
   margin: 15px;
@@ -37,4 +38,11 @@
 
 .Pokemon-name {
   font-weight: bold;
+  text-transform: capitalize;
+}
+
+.Pokemon-image {
+  margin: auto;
+  height: 96px;
+  width: 96px;
 }

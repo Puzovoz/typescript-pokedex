@@ -12,18 +12,20 @@ const Pokemon = (props: ILink) => {
       setPokemon(result)
     }
     fetchData();
-    pokemon && pokemon.species.name.replace('-m', '♂') && pokemon.species.name.replace('-f', '♀');
   }, [])
 
   return (
   	<div className="Pokemon">
       {pokemon ?
         <div key={props.name}>
-          <img src={pokemon.sprites.front_default} />
+          <div className="Pokemon-image"><img width="96px" height="96px" src={pokemon.sprites.front_default} /></div>
           <div className="Pokemon-index">#{('00' + pokemon.id.toString()).slice(-3)}</div>
           <div className="Pokemon-name">{
-            (pokemon.species.name.charAt(0).toUpperCase()
-             +pokemon.species.name.slice(1)).replace('-m', '♂').replace('-f', '♀')
+            ["-f", "-m", "-o"].includes(pokemon.species.name.substr(-2, 2)) ?
+            pokemon.species.name.replace('-m', '♂').replace('-f', '♀') :
+            pokemon.species.name
+              .replace('tapu-', 'tapu ')
+              .replace('mr-', 'mr. ')
           }
           </div>
         </div> :

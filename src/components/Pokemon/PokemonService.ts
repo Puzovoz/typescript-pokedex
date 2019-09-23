@@ -1,5 +1,3 @@
-import { useEffect, useState } from 'react';
-import { Service } from '../Service/Service';
 import { IPokemon } from '../../models/IPokemon';
 import axios from 'axios';
 
