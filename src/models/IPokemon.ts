@@ -62,3 +62,10 @@ export interface IType {
   slot: number;
   type: ILink;
 }
+
+export interface PokemonResults {
+  count: number;
+  next?: string;
+  previous?: string;
+  results: ILink[];
+}
