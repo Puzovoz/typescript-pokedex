@@ -4,8 +4,9 @@ import PokemonListService from './PokemonListService';
 import { PokemonResults, ILink } from '../../models/IPokemon';
 import './PokemonList.css';
 
-const PokemonList: React.FC = () => {
+const PokemonList = (input: { input: string }) => {
   const [loadedPokemon, setLoadedPokemon] = useState<PokemonResults>();
+  const [filteredPokemon, setFilteredPokemon] = useState<ILink[]>();
   const [renderedPokemon, setRenderedPokemon] = useState<ILink[]>();
   const [offset, setOffset] = useState<number>(50);
   const [rowSize, setRowSize] = useState<number>(9);
@@ -24,6 +25,7 @@ const PokemonList: React.FC = () => {
     const fetchData = async () => {
       const result = await PokemonListService(0, 807)
       setLoadedPokemon(result)
+      setFilteredPokemon(result.results)
 
       const currentLoadedPokemon = 6 * calculateRowSize()
       setRenderedPokemon(result.results.slice(0, currentLoadedPokemon))
@@ -34,9 +36,15 @@ const PokemonList: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+  
+  useEffect(() => {
+    const filtered = loadedPokemon && loadedPokemon.results.filter(pokemon => pokemon.name.includes(input.input))
+    setFilteredPokemon(filtered)
+    filtered && setRenderedPokemon(filtered.slice(0, offset));
+  }, [input])
 
   useEffect(() => {
-    loadedPokemon && setRenderedPokemon(loadedPokemon.results.slice(0, offset));
+    filteredPokemon && setRenderedPokemon(filteredPokemon.slice(0, offset));
   }, [offset])
 
   return (
