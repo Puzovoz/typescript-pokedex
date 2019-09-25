@@ -9,12 +9,11 @@ const PokemonList = (input: { input: string }) => {
   const [filteredPokemon, setFilteredPokemon] = useState<ILink[]>();
   const [renderedPokemon, setRenderedPokemon] = useState<ILink[]>();
   const [offset, setOffset] = useState<number>(50);
-  const [rowSize, setRowSize] = useState<number>(9);
 
   const handleScroll = () =>  {
     if (document.documentElement.clientHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
-    const newRowSize = calculateRowSize()
-    setOffset(offset => offset + (newRowSize - offset % newRowSize) % newRowSize + newRowSize * 6);    
+    const rowSize = calculateRowSize()
+    setOffset(offset => offset + (rowSize - offset % rowSize) % rowSize + rowSize * 6);    
   };
 
   const calculateRowSize = () => {
@@ -38,7 +37,7 @@ const PokemonList = (input: { input: string }) => {
   }, []);
   
   useEffect(() => {
-    const filtered = loadedPokemon && loadedPokemon.results.filter(pokemon => pokemon.name.includes(input.input))
+    const filtered = loadedPokemon && loadedPokemon.results.filter(pokemon => pokemon.name.includes(input.input.toLowerCase()))
     setFilteredPokemon(filtered)
     filtered && setRenderedPokemon(filtered.slice(0, offset));
   }, [input])

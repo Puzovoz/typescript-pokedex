@@ -15,8 +15,9 @@
 
 .Title {
   display: inline-block;
-  margin: 7px 2px 0;
-  vertical-align: top;
+  position: relative;
+  margin: 0 2px;
+  top: -5px;
   color: white;
   font-size: 44px;
   font-family: NeutraText;

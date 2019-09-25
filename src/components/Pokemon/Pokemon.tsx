@@ -27,6 +27,7 @@ const Pokemon = (props: ILink) => {
               .replace('tapu-', 'tapu ')
               .replace('mr-', 'mr. ')
               .replace('type-', 'type: ')
+              .replace('-z', '-Z')
           }
           </div>
         </div> :
