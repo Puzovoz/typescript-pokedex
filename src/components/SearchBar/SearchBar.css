@@ -10,3 +10,7 @@
   background: none;
   width: 80px;
 }
+
+::placeholder {
+  color: white;
+}
