@@ -29,12 +29,20 @@ const Pokemon = (props: ILink) => {
               .replace('type-', 'type: ')
               .replace('-z', '-Z')
           }
-          </div>
+          </div>          
+          { pokemon.types[1] ?
+            <>
+              <div className="Type-name" id={pokemon.types[1].type.name}>{pokemon.types[1].type.name}</div>
+              {" · "}
+              <div className="Type-name" id={pokemon.types[0].type.name}>{pokemon.types[0].type.name}</div>
+            </> :
+            <div className="Type-name" id={pokemon.types[0].type.name}>{pokemon.types[0].type.name}</div>
+          }
         </div> :
 
         <div>
-          <div className="Loading-image" />
-          <div className="Loading-index" />
+          <div className="Loading-image" /><br />
+          <div className="Loading-index" /><br />
           <div className="Loading-name" />
         </div>
       }

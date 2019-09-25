@@ -30,6 +30,7 @@
   width: auto;
   line-height: 1.25;
   text-align: center;
+  white-space: nowrap;
 }
 
 .Pokemon-index {
@@ -45,4 +46,82 @@
   margin: auto;
   height: 96px;
   width: 96px;
+}
+
+.Type-name {
+  font-weight: normal;
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+#grass {
+  color: #5cb737;
+}
+
+#poison {
+  color: #88447a;
+}
+
+#fire {
+  color: #d52100;
+}
+
+#flying {
+  color: #556dff;
+}
+
+#water {
+  color: #0080ff;
+}
+
+#bug {
+  color: #83901a;
+}
+
+#normal {
+  color: #797964;
+}
+
+#electric {
+  color: #c90;
+}
+
+#ground {
+  color: #bf9926;
+}
+
+#fairy {
+  color: #e76de7;
+}
+
+#fighting {
+  color: #a84d3d;
+}
+
+#psychic {
+  color: #ff227a;
+}
+
+#rock {
+  color: #a59249;
+}
+
+#steel {
+  color: #8e8ea4;
+}
+
+#ice {
+  color: #0af;
+}
+
+#ghost {
+  color: #5454b3;
+}
+
+#dragon {
+  color: #4e38e9;
+}
+
+#dark {
+  color: #573e31;
 }
