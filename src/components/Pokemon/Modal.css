@@ -1,0 +1,64 @@
+.Modal {
+  position: fixed;
+  z-index: 2;
+  top: 40%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -150px;
+  padding: 5px;
+  width: 300px;
+  height: 192px;
+  border-radius: 10px;
+  background: white;
+  color: black;
+  text-transform: capitalize;
+  text-align: left;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.Modal-images {
+  width: 96px;
+  height: 192px;
+  display: inline-block;
+  white-space: initial;
+  float: left;
+}
+
+.Star {
+  width: 9px;
+  height: 9px;
+  position: absolute;
+  margin-top: 8px;
+  margin-left: 4px;
+}
+
+.Star:hover {
+  text-shadow: 0 0 5px red;
+  cursor: pointer;
+}
+
+.Ability {
+  line-height: 18px;
+}
+
+.Info {
+  display: inline-block;
+  padding: 5px 0;
+  width: 204px;
+}
+
+.Info>table {
+  font-size: 12px;
+}
+
+.Stat {
+  display: inline-block;
+  height: 5px;
+  background: black;
+  border-radius: 3px;
+}
+
+.Sprite {
+  width: 96px;
+  height: 96px;
+}

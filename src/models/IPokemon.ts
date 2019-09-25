@@ -1,5 +1,5 @@
 export interface IPokemon {
-  abilities: ILink[];
+  abilities: IAbility[];
   base_experience: number;
   forms: ILink[];
   game_indices: {
@@ -22,6 +22,12 @@ export interface IPokemon {
 export interface ILink {
   name: string;
   url: string;
+}
+
+export interface IAbility {
+  ability: ILink;
+  is_hidden: boolean;
+  slot: number;
 }
 
 export interface IHeldItem {
