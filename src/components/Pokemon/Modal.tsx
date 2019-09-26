@@ -4,7 +4,6 @@ import star from './Star.png';
 import { IPokemon } from '../../models/IPokemon';
 
 const Modal = (pokemon: IPokemon) => {
-  const [show, setShow] = useState<boolean>(false);
   const [shiny, setShiny] = useState<boolean>(false);
 
   const handleToggle = () => {
@@ -52,11 +51,20 @@ const Modal = (pokemon: IPokemon) => {
           ))}
         </>
 
-        <table style={{marginTop: "5px"}}>
-          {pokemon.stats.map(stat => (
+        <table>
+          {pokemon.stats.reverse().map(stat => (
           	<tr style={{lineHeight: "5px"}}>
-              <td style={{textAlign: "right"}}>{stat.stat.name.replace('special-', 'Sp. ')} {stat.base_stat}</td>
-              <td><div className="Stat" style={{width: stat.base_stat}} /></td>
+             <td style={{textAlign: "right"}}>
+               {stat.stat.name
+                 .replace('special-a', 'SpA')
+                 .replace('special-d', 'SpD')
+                 .slice(0, 3)}
+             </td>
+             <td style={{textAlign: "right"}}>{stat.base_stat}</td>
+             <td style={{width: 130}}>
+               <div className="Stat" style={{width: `${(stat.base_stat/255)**(1/2)*100}%`,
+                                             background: `hsl(${stat.base_stat*0.7},100%,50%)`}} />
+             </td>
             </tr>
           ))}
         </table>
